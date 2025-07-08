@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tdp.css" />
+    <style>
+        body {
+            background-color: #000000;
+            color: #f5f5f5; /* Softer white */
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        a {
+            color: #ffffff; /* Pure white for links */
+            text-decoration: none;
+        }
+
+        .main-section.hidden {
+            display: none !important;
+        }
+
+        /* HTML orange color */
+        :root {
+            --html-orange: #e44d26;
+        }
+
+        @media (max-width: 600px) {
+            #navbar {
+                position: static;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 4px solid #e0e0e0;
+                flex-direction: row;
+                align-items: center;
+                padding: 1rem 0.5rem;
+            }
+
+            .content {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 1rem;
+            }
+        }
+
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100vh;
+            background: #181818;
+            border-right: 4px solid #e44d26; /* Changed to HTML orange */
+            color: var(--html-orange);
+            padding: 2rem 1rem;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        #navbar header {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--html-orange);
+            border-radius: 6px;
+            margin-bottom: 1.2rem;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            background: #e44d26;
+        }
+
+        .content {
+            margin-left: 220px; /* Same as sidebar width */
+            background: #000000;
+            color: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .content h1,
+        .content h2,
+        .content h3,
+        .content h4,
+        .content h5,
+        .content h6 {
+            color: var(--html-orange);
+        }
+
+        /* Watermark logo on the right half, fixed and never under text */
+        .content::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50vw;
+            height: 100vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg');
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: contain;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <header>Documentation</header>
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#Getting_Started">Getting Started</a>
+        <a class="nav-link" href="#Examples">Examples</a>
+        <a class="nav-link" href="#Conclusion">Conclusion</a>
+        <a class="nav-link" href="#Advanced_Topics">Advanced Topics</a>
+    </nav>
+
+    <main id="main-doc" class="content">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p>HTML (HyperText Markup Language) is the standard markup language used to create web pages. It tells the browser how to structure and display content. HTML elements are the building blocks of all websites.</p>
+            <p>HTML is not a programming language — it’s a markup language. You use it to annotate text, images, and other content to tell the browser what they are and how they should be displayed.</p>
+            <p>Here is a simple example of an HTML document:</p>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+    &lt;p&gt;Welcome to my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Getting_Started">
+            <header>Getting Started</header>
+            <p>To start with HTML, you need a basic understanding of its syntax and structure. HTML uses "elements" that are wrapped in angle brackets. Most elements have an opening tag, content, and a closing tag.</p>
+            <p>For example, a paragraph tag looks like this:</p>
+            <pre><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+            <p>Some tags are self-closing, meaning they don’t need a closing tag. Example:</p>
+            <pre><code>&lt;img src="image.jpg" alt="My Image" /&gt;</code></pre>
+            <p>HTML elements can also have attributes, which provide extra information:</p>
+            <pre><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</code></pre>
+        </section>
+        <section class="main-section" id="Examples">
+            <header>Examples</header>
+            <p>HTML provides a wide range of elements for text, images, links, lists, and more.</p>
+            <ul>
+                <li><code>&lt;h1&gt; - &lt;h6&gt;</code>: Headings</li>
+                <li><code>&lt;p&gt;</code>: Paragraphs</li>
+                <li><code>&lt;img&gt;</code>: Images</li>
+                <li><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code>: Lists</li>
+                <li><code>&lt;div&gt;</code> and <code>&lt;span&gt;</code>: Generic containers</li>
+            </ul>
+            <p>Using these elements correctly helps browsers and assistive technologies render your content properly.</p>
+        </section>
+        <section class="main-section" id="Conclusion">
+            <header>Conclusion</header>
+            <p>Semantic HTML introduces elements that clearly describe their meaning. It makes your code easier to read and improves accessibility.</p>
+        </section>
+        <section class="main-section" id="Advanced_Topics">
+            <header>Advanced Topics</header>
+            <p>
+                For more in-depth information on advanced HTML, visit the 
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener" style="color:var(--html-orange);text-decoration:underline;">
+                    MDN Web Docs: HTML Reference
+                </a>.
+            </p>
+        </section>
+    </main>
+
+</body>
+</html>

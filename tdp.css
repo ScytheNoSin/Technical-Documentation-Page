@@ -1,0 +1,112 @@
+body {
+    background-color: #000000;
+    color: #f5f5f5; /* Softer white */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    color: #ffffff; /* Pure white for links */
+    text-decoration: none;
+}
+
+/* HTML orange color */
+:root {
+    --html-orange: #e44d26;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: #181818;
+    border-right: 4px solid #e44d26; /* Changed to HTML orange */
+    color: var(--html-orange);
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+#navbar header {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--html-orange);
+}
+
+.nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--html-orange);
+    border-radius: 6px;
+    margin-bottom: 1.2rem;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background: #e44d26;
+    color: #222;
+}
+
+.content {
+    margin-left: 220px; /* Same as sidebar width */
+    flex: 1;
+    background: #000000;
+    color: #f5f5f5;
+    padding: 2rem 2rem 2rem 2rem;
+    position: relative;
+    z-index: 1;
+    margin-right: 52vw; /* Prevents text from overlapping the logo */
+}
+
+/* Make all section headers HTML orange */
+.main-section > header,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    color: var(--html-orange);
+}
+
+/* Watermark logo on the right half, fixed and never under text */
+.content::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 700px) {
+    #navbar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 4px solid #e0e0e0;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem 0.5rem;
+    }
+    .content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1rem;
+    }
+}
